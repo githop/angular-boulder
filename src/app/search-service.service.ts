@@ -19,8 +19,5 @@ export class SearchServiceService {
     return this.$searches;
   }
 
-  addSearch(tmpSearch) {
-    this.$searches.push(tmpSearch);
-  }
 
 }

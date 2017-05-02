@@ -8,10 +8,11 @@ import {FIREBASE_CONFIG} from '../environments/firebase.config';
 import {AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
 import { SearchServiceService } from './search-service.service';
 import { SearchListComponent } from './search-list/search-list.component';
+import { UploadServiceService } from './upload-service.service';
 
 const FirebaseAuthConfig = {
-  provider: AuthProviders.Password,
-  method: AuthMethods.Password
+  provider: AuthProviders.Anonymous,
+  method: AuthMethods.Anonymous
 };
 
 @NgModule({
@@ -25,7 +26,7 @@ const FirebaseAuthConfig = {
     HttpModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG, FirebaseAuthConfig)
   ],
-  providers: [SearchServiceService],
+  providers: [SearchServiceService, UploadServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
