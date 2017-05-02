@@ -6,6 +6,8 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {FIREBASE_CONFIG} from '../environments/firebase.config';
 import {AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
+import { SearchServiceService } from './search-service.service';
+import { SearchListComponent } from './search-list/search-list.component';
 
 const FirebaseAuthConfig = {
   provider: AuthProviders.Password,
@@ -14,7 +16,8 @@ const FirebaseAuthConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchListComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,7 @@ const FirebaseAuthConfig = {
     HttpModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG, FirebaseAuthConfig)
   ],
-  providers: [],
+  providers: [SearchServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
