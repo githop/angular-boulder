@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {SearchServiceService} from '../search-service.service';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {Search, SearchServiceService} from '../search-service.service';
 import {UploadServiceService} from '../upload-service.service';
 import {AngularFire} from 'angularfire2';
 
@@ -10,6 +10,7 @@ import {AngularFire} from 'angularfire2';
 })
 export class SearchListComponent implements OnInit {
   $searches;
+  @ViewChild('fileInput') fileInput;
   constructor(
     public af: AngularFire,
     public searchService: SearchServiceService,
@@ -23,7 +24,15 @@ export class SearchListComponent implements OnInit {
   onFileSelect(ev) {
     //commense upload!
     this.uploadService.uploadSearchPhoto(ev.target.files[0])
-      .then(success => console.log('it worked??', success));
+      .then(fileRef => {
+
+        let url = fileRef.downloadURL;
+        let name = ev.target.files[0].name;
+        let isGoku = false;
+        let searching = true;
+        let search: Search = {url, name, isGoku, searching};
+        this.$searches.push(search);
+      });
   }
 
 }

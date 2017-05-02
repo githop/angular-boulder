@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {AngularFire, FirebaseListObservable} from 'angularfire2';
 
-class Search {
+export class Search {
   name: string;
   url: string;
   isGoku: boolean;
