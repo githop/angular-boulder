@@ -24,13 +24,14 @@ export class SearchListComponent implements OnInit {
   onFileSelect(ev) {
     //commense upload!
     this.uploadService.uploadSearchPhoto(ev.target.files[0])
-      .then(fileRef => {
-
+      .then((fileRef) => {
         let url = fileRef.downloadURL;
         let name = ev.target.files[0].name;
         let isGoku = false;
         let searching = true;
-        let search: Search = {url, name, isGoku, searching};
+        let md5 = window.atob(fileRef.metadata.md5Hash);
+        console.log('wtf', md5);
+        let search: Search = {url, md5, name, isGoku, searching};
         this.$searches.push(search);
       });
   }

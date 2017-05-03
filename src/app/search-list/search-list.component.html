@@ -3,7 +3,14 @@
 <div>
   <div *ngFor="let search of $searches | async">
     <h3>{{search.name}}</h3>
+
     <img [src]="search.url">
+
+    <div>
+      isGoku? {{search.isGoku}}
+      searching? {{search.searching}}
+      md5: {{search.md5}}
+    </div>
 
   </div>
 

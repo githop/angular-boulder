@@ -3,6 +3,7 @@ import {AngularFire, FirebaseListObservable} from 'angularfire2';
 
 export class Search {
   name: string;
+  md5: string;
   url: string;
   isGoku: boolean;
   searching: boolean;
