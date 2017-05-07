@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import {AngularFire, FirebaseListObservable} from 'angularfire2';
+import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 
 export class Search {
   name: string;
-  md5: string;
   url: string;
   isGoku: boolean;
   searching: boolean;
@@ -12,12 +11,13 @@ export class Search {
 @Injectable()
 export class SearchServiceService {
   private $searches: FirebaseListObservable<Search[]>;
-  constructor(private fb: AngularFire) {
-    this.$searches = fb.database.list('/searches');
+  constructor(private db: AngularFireDatabase) {
+    this.$searches = db.list('/searches');
   }
 
   get searches() {
-    return this.$searches;
+    //to add new searches to the head of the list.
+    return this.$searches.map(arr => arr.reverse());
   }
 
 

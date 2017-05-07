@@ -1,0 +1,111 @@
+//http://mcg.mbitson.com
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/theming';
+@include mat-core();
+
+/* For use in src/lib/core/theming/_palette.scss */
+/* For use in src/lib/core/theming/_palette.scss */
+$md-dbzprimary: (
+  50 : #ffe0e0,
+  100 : #ffb3b3,
+  200 : #ff8080,
+  300 : #ff4d4d,
+  400 : #ff2626,
+  500 : #ff0000,
+  600 : #ff0000,
+  700 : #ff0000,
+  800 : #ff0000,
+  900 : #ff0000,
+  A100 : #ffffff,
+  A200 : #fff2f2,
+  A400 : #ffbfbf,
+  A700 : #ffa6a6,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$md-dbzwarn: (
+  50 : #ffede0,
+  100 : #ffd3b3,
+  200 : #ffb680,
+  300 : #ff994d,
+  400 : #ff8326,
+  500 : #ff6d00,
+  600 : #ff6500,
+  700 : #ff5a00,
+  800 : #ff5000,
+  900 : #ff3e00,
+  A100 : #ffffff,
+  A200 : #fff5f2,
+  A400 : #ffcbbf,
+  A700 : #ffb6a6,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$md-dbzaccent: (
+  50 : #fffee0,
+  100 : #fffdb3,
+  200 : #fffb80,
+  300 : #fff94d,
+  400 : #fff826,
+  500 : #fff700,
+  600 : #fff600,
+  700 : #fff500,
+  800 : #fff300,
+  900 : #fff100,
+  A100 : #ffffff,
+  A200 : #fffef2,
+  A400 : #fffbbf,
+  A700 : #fff9a6,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$dbz-primary: mat-palette($md-dbzprimary);
+$dbz-accent: mat-palette($md-dbzaccent);
+$dbz-warn: mat-palette($md-dbzwarn);
+$dbz-theme: mat-light-theme($dbz-primary, $dbz-accent, $dbz-warn);
+@include angular-material-theme($dbz-theme);

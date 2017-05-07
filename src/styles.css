@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: 'Saiyan Sans';
+  src: url('/assets/Saiyan-Sans.ttf') format('truetype');
+}
+
+.big-font {
+  font-size: 10vw;
+  font-family: "Saiyan Sans", Arial, sans-serif;
+  display: inline;
+}

@@ -5,15 +5,21 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import {FIREBASE_CONFIG} from '../environments/firebase.config';
-import {AngularFireModule, AuthMethods, AuthProviders} from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
 import { SearchServiceService } from './search-service.service';
 import { SearchListComponent } from './search-list/search-list.component';
 import { UploadServiceService } from './upload-service.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {
+  MdButtonModule,
+  MdCardModule, MdIconModule,
+  MdProgressBarModule, MdProgressSpinnerModule,
+  MdToolbarModule
+} from '@angular/material';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {AngularFireAuthModule} from 'angularfire2/auth';
 
-const FirebaseAuthConfig = {
-  provider: AuthProviders.Anonymous,
-  method: AuthMethods.Anonymous
-};
 
 @NgModule({
   declarations: [
@@ -21,10 +27,20 @@ const FirebaseAuthConfig = {
     SearchListComponent
   ],
   imports: [
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+    FlexLayoutModule,
     HttpModule,
-    AngularFireModule.initializeApp(FIREBASE_CONFIG, FirebaseAuthConfig)
+    MdButtonModule,
+    MdCardModule,
+    MdIconModule,
+    MdProgressBarModule,
+    MdProgressSpinnerModule,
+    MdToolbarModule
   ],
   providers: [SearchServiceService, UploadServiceService],
   bootstrap: [AppComponent]
