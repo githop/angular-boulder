@@ -40,3 +40,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# firebase
+src/environments/firebase*
+/functions/node_modules/
+/functions/angular-boulder-firebase-adminsdk-hdbtn-78a2c09326.json
+/functions/admin.js
